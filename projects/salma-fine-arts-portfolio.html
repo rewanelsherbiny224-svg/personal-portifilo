@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fine Arts Portfolio, Salma Said — Project by Rewan Elsherbiny</title>
+<meta name="description" content="Portfolio design case study: a fine arts portfolio for muralist and painter Salma Said, designed by Rewan Elsherbiny.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Big+Shoulders+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #14110D; --bg-alt: #1A1611; --surface: #1F1A14;
+    --border: rgba(245,241,234,0.09); --border-strong: rgba(245,241,234,0.16);
+    --text: #F5F1EA; --text-dim: #C9C1B4; --text-faint: #8A8276;
+    --accent: #F2C230; --accent-soft: #F7D666;
+    --font-display: "Big Shoulders Display", sans-serif;
+    --font-body: "Plus Jakarta Sans", sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+  a { color: inherit; }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 8px; padding: 20px 0;
+    color: var(--text-dim); text-decoration: none; font-size: .9rem; font-weight: 600;
+  }
+  .back-link:hover { color: var(--accent-soft); }
+  header.hero { padding: 40px 0 60px; border-bottom: 1px solid var(--border); }
+  .kicker { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 14px; }
+  h1 {
+    font-family: var(--font-display); font-weight: 800; text-transform: uppercase;
+    font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.02; margin-bottom: 18px;
+  }
+  .subtitle { color: var(--text-dim); font-size: 1.1rem; max-width: 60ch; }
+  .credit { margin-top: 24px; font-size: .85rem; color: var(--text-faint); }
+  .credit strong { color: var(--accent-soft); }
+  main { padding: 60px 0 80px; }
+  section { margin-bottom: 64px; }
+  .section-title {
+    font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+    font-size: 1.6rem; margin-bottom: 24px; color: var(--accent-soft);
+  }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  figure {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    overflow: hidden; margin: 0;
+  }
+  figure img { width: 100%; height: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; }
+  figcaption { padding: 16px 18px; }
+  figcaption .piece-title { font-weight: 700; font-size: .98rem; margin-bottom: 4px; }
+  figcaption .piece-medium { font-size: .82rem; color: var(--text-faint); }
+  footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; color: var(--text-faint); font-size: .85rem; }
+  @media (max-width: 860px) { .gallery { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .gallery { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="../index.html#projects">&larr; Back to Rewan Elsherbiny's portfolio</a>
+</div>
+
+<header class="hero">
+  <div class="container">
+    <p class="kicker">Portfolio Design Project</p>
+    <h1>Fine Arts Portfolio<br>Salma Said</h1>
+    <p class="subtitle">A portfolio for muralist, painter, and illustrator Salma Said — structuring room-scale murals, oil paintings, and ink studies into a cohesive, presentation-ready collection.</p>
+    <p class="credit">Portfolio designed by <strong>Rewan Elsherbiny</strong></p>
+  </div>
+</header>
+
+<main class="container">
+  <section>
+    <h2 class="section-title">Murals &amp; Wall Paintings</h2>
+    <div class="gallery">
+      <figure>
+        <img src="salma-gallery/tuktuk-mural.jpg" alt="Wase! tuk-tuk street mural in pink and yellow" loading="lazy">
+        <figcaption>
+          <div class="piece-title">"Wase'!" Tuk-Tuk Mural</div>
+          <div class="piece-medium">Street mural — Kom El-Deka</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="salma-gallery/ocean-mural.jpg" alt="Cause you are the ocean hand-lettered wall mural with painted fish" loading="lazy">
+        <figcaption>
+          <div class="piece-title">"Cause You Are The Ocean"</div>
+          <div class="piece-medium">Hand-lettered wall mural — Dahab</div>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Oil Paintings on Canvas</h2>
+    <div class="gallery">
+      <figure>
+        <img src="salma-gallery/turbaned-elder.jpg" alt="Oil painting titled The Turbaned Elder" loading="lazy">
+        <figcaption>
+          <div class="piece-title">The Turbaned Elder</div>
+          <div class="piece-medium">Mixed media on canvas</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="salma-gallery/armored-figure.jpg" alt="Oil painting titled Armored Figure, Red Ground" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Armored Figure, Red Ground</div>
+          <div class="piece-medium">Oil on canvas</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="salma-gallery/mech-primate.jpg" alt="Oil painting titled Mech Primate" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Mech Primate</div>
+          <div class="piece-medium">Oil on canvas</div>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Portfolio design case study by Rewan Elsherbiny. Artwork &copy; Salma Said.
+</footer>
+</body>
+</html>

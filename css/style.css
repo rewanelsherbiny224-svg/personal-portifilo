@@ -293,10 +293,14 @@ input { font: inherit; }
 /* ============ Projects ============ */
 .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .project-card {
-  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-m);
-  overflow: hidden; transition: transform .35s var(--ease), border-color .35s var(--ease);
+  display: block; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-m);
+  overflow: hidden; transition: transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+  text-decoration: none; cursor: pointer;
 }
-.project-card:hover { transform: translateY(-6px); border-color: var(--accent); }
+.project-card:hover, .project-card:focus-visible {
+  transform: translateY(-6px); border-color: var(--accent);
+  box-shadow: 0 20px 50px -20px rgba(0,0,0,.55);
+}
 .project-media { aspect-ratio: 3 / 2; overflow: hidden; background: var(--bg-alt); }
 .project-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
 .project-card:hover .project-media img { transform: scale(1.06); }
@@ -307,6 +311,11 @@ input { font: inherit; }
 }
 .project-body h3 { font-size: 1.08rem; margin-bottom: 10px; line-height: 1.3; }
 .project-body p { color: var(--text-dim); font-size: .9rem; line-height: 1.6; }
+.project-link {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 16px;
+  font-size: .85rem; font-weight: 700; color: var(--accent-soft); transition: gap .25s var(--ease);
+}
+.project-card:hover .project-link { gap: 10px; }
 
 /* ============ Education ============ */
 .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
