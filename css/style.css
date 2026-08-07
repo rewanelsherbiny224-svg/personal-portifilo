@@ -290,6 +290,24 @@ input { font: inherit; }
 .service-card h3 { font-size: 1.05rem; margin-bottom: 10px; line-height: 1.3; }
 .service-card p { font-size: .9rem; color: var(--text-dim); line-height: 1.6; }
 
+/* ============ Projects ============ */
+.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.project-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-m);
+  overflow: hidden; transition: transform .35s var(--ease), border-color .35s var(--ease);
+}
+.project-card:hover { transform: translateY(-6px); border-color: var(--accent); }
+.project-media { aspect-ratio: 3 / 2; overflow: hidden; background: var(--bg-alt); }
+.project-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+.project-card:hover .project-media img { transform: scale(1.06); }
+.project-body { padding: 24px 26px 28px; }
+.project-tag {
+  display: inline-block; font-size: .72rem; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--accent); font-weight: 700; margin-bottom: 12px;
+}
+.project-body h3 { font-size: 1.08rem; margin-bottom: 10px; line-height: 1.3; }
+.project-body p { color: var(--text-dim); font-size: .9rem; line-height: 1.6; }
+
 /* ============ Education ============ */
 .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .edu-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 30px; transition: transform .35s var(--ease), border-color .35s var(--ease); }
@@ -364,6 +382,7 @@ input { font: inherit; }
   .about-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr 1fr; }
   .services-grid { grid-template-columns: 1fr 1fr; }
+  .projects-grid { grid-template-columns: 1fr 1fr; }
   .edu-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .nav-cta { display: none; }
@@ -384,6 +403,7 @@ input { font: inherit; }
 
   .skills-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .hero-stats { grid-template-columns: repeat(2, auto); gap: 20px 32px; }
   .badge-float { display: none; }
