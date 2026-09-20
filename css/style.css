@@ -291,7 +291,7 @@ input { font: inherit; }
 .service-card p { font-size: .9rem; color: var(--text-dim); line-height: 1.6; }
 
 /* ============ Projects ============ */
-.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
 .project-card {
   display: block; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-m);
   overflow: hidden; transition: transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);

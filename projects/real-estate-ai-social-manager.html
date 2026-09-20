@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real Estate AI Social Media Manager — Project by Rewan Elsherbiny</title>
+<meta name="description" content="Case study: an AI-powered social media management platform for real estate marketing, built by Rewan Elsherbiny.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Big+Shoulders+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #14110D; --bg-alt: #1A1611; --surface: #1F1A14;
+    --border: rgba(245,241,234,0.09); --border-strong: rgba(245,241,234,0.16);
+    --text: #F5F1EA; --text-dim: #C9C1B4; --text-faint: #8A8276;
+    --accent: #F2C230; --accent-soft: #F7D666; --accent-dim: rgba(242,194,48,0.14);
+    --font-display: "Big Shoulders Display", sans-serif;
+    --font-body: "Plus Jakarta Sans", sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 8px; padding: 20px 0;
+    color: var(--text-dim); text-decoration: none; font-size: .9rem; font-weight: 600;
+  }
+  .back-link:hover { color: var(--accent-soft); }
+  header.hero { padding: 40px 0 56px; border-bottom: 1px solid var(--border); }
+  .kicker { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 14px; }
+  h1 {
+    font-family: var(--font-display); font-weight: 800; text-transform: uppercase;
+    font-size: clamp(2rem, 5.4vw, 3.6rem); line-height: 1.04; margin-bottom: 18px; max-width: 20ch;
+  }
+  .subtitle { color: var(--text-dim); font-size: 1.1rem; max-width: 62ch; }
+  .credit { margin-top: 24px; font-size: .85rem; color: var(--text-faint); }
+  .credit strong { color: var(--accent-soft); }
+  .hero-shot {
+    margin-top: 36px; border-radius: 18px; overflow: hidden; border: 1px solid var(--border-strong);
+    box-shadow: 0 30px 80px -30px rgba(0,0,0,.6);
+  }
+  main { padding: 60px 0 80px; }
+  section { margin-bottom: 68px; }
+  .section-title {
+    font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+    font-size: 1.6rem; margin-bottom: 20px; color: var(--accent-soft);
+  }
+  .lead { font-size: 1.05rem; color: var(--text-dim); max-width: 72ch; }
+  .lead + .lead { margin-top: 16px; }
+
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 8px; }
+  .feature-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 26px;
+  }
+  .feature-card h3 { font-size: 1rem; margin-bottom: 10px; }
+  .feature-card p { font-size: .88rem; color: var(--text-dim); line-height: 1.6; }
+
+  .platform-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .pill {
+    font-size: .82rem; padding: 8px 16px; border-radius: 999px; background: var(--bg-alt);
+    border: 1px solid var(--border); color: var(--text-dim);
+  }
+
+  .shot-block { margin-bottom: 40px; }
+  .shot-block:last-child { margin-bottom: 0; }
+  .shot-caption { font-size: .85rem; color: var(--text-faint); margin-top: 12px; }
+  .shot-caption strong { color: var(--text-dim); }
+  figure { margin: 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: var(--surface); }
+
+  .more-tools { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+
+  .ai-callout {
+    background: linear-gradient(135deg, var(--surface), var(--bg-alt));
+    border: 1px solid var(--border-strong); border-radius: 18px; padding: 32px 34px;
+  }
+  .ai-callout h3 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 1.3rem; margin-bottom: 12px; color: var(--accent-soft); }
+  .ai-callout p { color: var(--text-dim); font-size: .96rem; max-width: 68ch; }
+
+  footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; color: var(--text-faint); font-size: .85rem; }
+
+  @media (max-width: 860px) { .feature-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .feature-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="../index.html#projects">&larr; Back to Rewan Elsherbiny's portfolio</a>
+</div>
+
+<header class="hero">
+  <div class="container">
+    <p class="kicker">AI Product &middot; SaaS Dashboard</p>
+    <h1>Real Estate AI Social Media Manager</h1>
+    <p class="subtitle">A dashboard that turns a real estate developer's property listings, media, and brand guidelines into AI-generated, multi-platform social content — built end-to-end by Rewan Elsherbiny using AI-assisted development workflows.</p>
+    <p class="credit">Created and built by <strong>Rewan Elsherbiny</strong></p>
+
+    <div class="hero-shot">
+      <img src="../images/re-social-manager/dashboard.png" alt="Dashboard overview showing published, scheduled, needs review, drafts, failed, active campaigns, and active properties stats" loading="lazy">
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section>
+    <h2 class="section-title">The Problem</h2>
+    <p class="lead">Real estate marketing teams juggle property data, photos and videos, brand voice guidelines, and posting schedules across many social platforms at once — usually spread across spreadsheets, shared drives, and separate platform logins. Keeping content on-brand and consistently published is manual, repetitive work.</p>
+    <p class="lead">This app centralizes all of it — property inventory, media library, and brand strategy — in one place, and lets an AI agent turn that source material into scheduled, multi-platform posts, so a real estate marketing team can track what's published, what's scheduled, and what needs review from a single dashboard.</p>
+  </section>
+
+  <section>
+    <h2 class="section-title">Core Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Content Dashboard</h3>
+        <p>A monthly overview of content status — published, scheduled, needs review, drafts, and failed posts — plus active campaigns, active properties, and a content-by-platform breakdown.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Property Inventory</h3>
+        <p>A structured property database (location, type, starting price, unit count, availability status) that the AI agent draws from when generating content.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Media Library</h3>
+        <p>A central store of photos, videos, drone footage, floor plans, and brochures, tagged as used or unused, ready for the AI agent to pull from.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Brand &amp; Content Strategy</h3>
+        <p>Configurable brand identity — name, description, logo, and primary brand color used for AI-generated creative overlays like price and CTA banners — plus brand voice, tone, and target audience settings that guide every generated post.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Multi-Platform Social Accounts</h3>
+        <p>Real OAuth connections to social platforms, with live connection status and error surfacing — not a mock-up. Each platform only shows "Connected" once the handshake actually completes.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Also in the App</h3>
+        <p>Campaigns, an AI Agent control panel, an AI Marketing Planner, a Content Calendar, a Posts manager, Analytics, and Automation settings round out the workflow.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Connected Platforms</h2>
+    <p class="lead">The Social Accounts screen manages real API connections across seven platforms:</p>
+    <div class="platform-pills">
+      <span class="pill">Facebook</span>
+      <span class="pill">Instagram</span>
+      <span class="pill">TikTok</span>
+      <span class="pill">X (Twitter)</span>
+      <span class="pill">YouTube</span>
+      <span class="pill">Threads</span>
+      <span class="pill">LinkedIn</span>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Walkthrough</h2>
+
+    <div class="shot-block">
+      <figure>
+        <img src="../images/re-social-manager/properties.png" alt="Properties screen listing a property with location, type, starting price, units, and availability status" loading="lazy">
+      </figure>
+      <p class="shot-caption"><strong>Properties</strong> — the property inventory the AI agent draws content from.</p>
+    </div>
+
+    <div class="shot-block">
+      <figure>
+        <img src="../images/re-social-manager/media-library.png" alt="Media Library grid showing photos and videos marked as used or unused" loading="lazy">
+      </figure>
+      <p class="shot-caption"><strong>Media Library</strong> — photos, videos, drone footage, floor plans, and brochures for the AI agent to draw from.</p>
+    </div>
+
+    <div class="shot-block">
+      <figure>
+        <img src="../images/re-social-manager/content-strategy.png" alt="Content Strategy screen with brand identity fields and voice and tone settings" loading="lazy">
+      </figure>
+      <p class="shot-caption"><strong>Content Strategy</strong> — brand guidelines and content pillars the AI agent must follow when generating content.</p>
+    </div>
+
+    <div class="shot-block">
+      <figure>
+        <img src="../images/re-social-manager/social-accounts.png" alt="Social Accounts screen showing connection status across Facebook, Instagram, TikTok, X, YouTube, Threads, and LinkedIn" loading="lazy">
+      </figure>
+      <p class="shot-caption"><strong>Social Accounts</strong> — real OAuth connections across seven platforms, with live status and error reporting.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="ai-callout">
+      <h3>Built With AI-Assisted Development</h3>
+      <p>As a Claude AI Certified specialist, Rewan built this application end-to-end by directing AI-assisted development workflows — pairing her product thinking and real estate marketing expertise with generative AI tools to design, build, and ship a working platform.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Project by Rewan Elsherbiny.
+</footer>
+</body>
+</html>
