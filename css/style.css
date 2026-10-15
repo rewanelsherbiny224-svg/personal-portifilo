@@ -70,8 +70,9 @@ svg { display: block; }
 /* Hero */
 .hero { background: var(--choc); color: var(--blush); padding: calc(var(--nav-h) + 56px) 0 90px; }
 .hero-inner { max-width: 1240px; margin: 0 auto; padding: 0 28px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; min-height: 600px; }
-.hero-hi { color: var(--pink); font-size: .95rem; margin-bottom: 8px; }
-.hero-name { font-family: var(--ff-head); font-weight: 400; font-size: clamp(3rem, 7vw, 6rem); line-height: 1.03; color: var(--pink); letter-spacing: -.01em; margin-bottom: 26px; }
+.hero-hi { color: var(--blush); font-size: 1rem; margin-bottom: 14px; }
+.hero-hi strong { font-weight: 600; letter-spacing: .02em; }
+.hero-name { font-family: var(--ff-head); font-weight: 400; font-size: clamp(2.4rem, 4.6vw, 4.2rem); line-height: 1.12; color: var(--pink); letter-spacing: -.01em; margin-bottom: 24px; max-width: 16ch; }
 .hero-role { font-size: 1.15rem; font-weight: 500; line-height: 1.55; margin-bottom: 20px; }
 .hero-role span { color: var(--pink); font-weight: 400; font-size: .98rem; }
 .hero-summary { max-width: 48ch; font-size: .98rem; font-weight: 300; color: rgba(246,230,232,.92); margin-bottom: 32px; }
@@ -241,7 +242,7 @@ svg { display: block; }
   .stat-card { padding: 22px 12px; }
   .stat-card dt { font-size: 1.9rem; }
   .stat-card dd { font-size: .74rem; }
-  .hero-name { font-size: clamp(2.8rem, 14vw, 4rem); }
+  .hero-name { font-size: clamp(2.1rem, 9.5vw, 2.8rem); }
   .hero-role { font-size: 1.02rem; }
   .feature-body, .sp-main, .sp-list { padding: 26px 22px; }
   .feature-media { aspect-ratio: 16/10; }
@@ -255,3 +256,35 @@ svg { display: block; }
   *, *::before, *::after { transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* Final refinement additions */
+[hidden] { display: none !important; }
+.meta { display: grid; gap: 4px; font-size: .8rem; margin: 2px 0 0; color: var(--ink); }
+.meta strong { color: var(--warm); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; margin-right: 8px; font-weight: 600; }
+.skill-group h3 { display: flex; align-items: center; gap: 12px; }
+.sk-ico { flex: none; width: 36px; height: 36px; border-radius: 8px; background: var(--blush); color: var(--warm); display: grid; place-items: center; }
+.sk-ico svg { width: 20px; height: 20px; }
+.svc-intro { max-width: 760px; margin-bottom: 36px; display: grid; gap: 12px; justify-items: start; }
+.svc-intro h3 { font-family: var(--ff-head); font-weight: 500; font-size: clamp(1.7rem, 3vw, 2.2rem); color: var(--pink); line-height: 1.2; }
+.svc-intro p:not(.badge) { font-weight: 300; }
+.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.svc { display: flex; flex-direction: column; border: 1px solid rgba(217,167,176,.5); border-radius: var(--radius); background: rgba(122,78,78,.2); padding: 30px 28px; }
+.svc-num { font-size: .72rem; letter-spacing: .18em; color: var(--pink); font-weight: 600; margin-bottom: 8px; }
+.svc h4 { font-family: var(--ff-head); font-weight: 500; font-size: 1.45rem; color: var(--blush); margin-bottom: 18px; line-height: 1.25; }
+.svc h5 { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--pink); font-weight: 600; margin: 0 0 8px; }
+.svc ul { display: grid; gap: 8px; margin-bottom: 18px; }
+.svc li { position: relative; padding-left: 16px; font-size: .86rem; font-weight: 300; line-height: 1.55; }
+.svc li::before { content: ""; position: absolute; left: 0; top: .7em; width: 7px; height: 1.5px; background: var(--pink); }
+.svc p:not(.svc-num) { font-size: .86rem; font-weight: 300; margin-bottom: 22px; }
+.svc .btn { margin-top: auto; align-self: flex-start; }
+.services-grid { margin-top: 0; }
+.dark .more-h { margin-top: 64px; }
+.btn-dark { background: var(--choc); color: var(--blush); }
+.btn-dark:hover { background: var(--warm); }
+.path-emp { cursor: default; }
+.path-emp:hover { transform: none; border-color: rgba(183,126,134,.4); }
+.recruiter-links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 18px !important; }
+.recruiter-links a { font-size: .84rem; font-weight: 500; border-bottom: 1.5px solid var(--dusty); text-decoration: none; }
+.recruiter-links a:hover { color: var(--warm); }
+.path-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+@media (max-width: 1040px) { .svc-grid { grid-template-columns: 1fr; } }

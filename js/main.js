@@ -71,8 +71,14 @@
     typeEl.addEventListener("change", function () { setType(typeEl.value); });
     setType(typeEl.value);
     // Enquiry buttons across the page preselect the matching enquiry type
+    var service = "";
+    var msgEl = form.elements.message;
     [].slice.call(document.querySelectorAll("[data-inquiry]")).forEach(function (el) {
-      el.addEventListener("click", function () { setType(el.getAttribute("data-inquiry")); });
+      el.addEventListener("click", function () {
+        setType(el.getAttribute("data-inquiry"));
+        service = el.getAttribute("data-service") || "";
+        if (service && !msgEl.value.trim()) msgEl.value = "I'm interested in: " + service + ".\n\n";
+      });
     });
 
     var fields = [].slice.call(form.querySelectorAll("input, textarea"));
@@ -102,7 +108,7 @@
       var email = form.elements.email.value.trim();
       var body = form.elements.message.value.trim() + "\n\n— " + name + " (" + email + ")";
       note.textContent = "Opening your email app with your message ready to send. If nothing opens, email me directly at " + TO + ".";
-      window.location.href = "mailto:" + TO + "?subject=" + encodeURIComponent(LABELS[typeEl.value] + " — " + name) + "&body=" + encodeURIComponent(body);
+      window.location.href = "mailto:" + TO + "?subject=" + encodeURIComponent(LABELS[typeEl.value] + (service ? " — " + service : "") + " — " + name) + "&body=" + encodeURIComponent(body);
     });
   }
 })();
