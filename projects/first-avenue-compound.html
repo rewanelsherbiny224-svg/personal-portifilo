@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Avenue Compound — Finishing Tracker — Project by Rewan Elsherbiny</title>
+<meta name="description" content="Case study: an internal web app for tracking construction and finishing progress across the First Avenue compound, built by Rewan Elsherbiny.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Big+Shoulders+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #14110D; --bg-alt: #1A1611; --surface: #1F1A14;
+    --border: rgba(245,241,234,0.09); --border-strong: rgba(245,241,234,0.16);
+    --text: #F5F1EA; --text-dim: #C9C1B4; --text-faint: #8A8276;
+    --accent: #F2C230; --accent-soft: #F7D666; --accent-dim: rgba(242,194,48,0.14);
+    --font-display: "Big Shoulders Display", sans-serif;
+    --font-body: "Plus Jakarta Sans", sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 8px; padding: 20px 0;
+    color: var(--text-dim); text-decoration: none; font-size: .9rem; font-weight: 600;
+  }
+  .back-link:hover { color: var(--accent-soft); }
+  header.hero { padding: 40px 0 56px; border-bottom: 1px solid var(--border); }
+  .kicker { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 14px; }
+  h1 {
+    font-family: var(--font-display); font-weight: 800; text-transform: uppercase;
+    font-size: clamp(2rem, 5.4vw, 3.6rem); line-height: 1.04; margin-bottom: 18px; max-width: 20ch;
+  }
+  .subtitle { color: var(--text-dim); font-size: 1.1rem; max-width: 62ch; }
+  .credit { margin-top: 24px; font-size: .85rem; color: var(--text-faint); }
+  .credit strong { color: var(--accent-soft); }
+  .hero-shot {
+    margin-top: 36px; border-radius: 18px; overflow: hidden; border: 1px solid var(--border-strong);
+    box-shadow: 0 30px 80px -30px rgba(0,0,0,.6);
+  }
+  main { padding: 60px 0 80px; }
+  section { margin-bottom: 68px; }
+  .section-title {
+    font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+    font-size: 1.6rem; margin-bottom: 20px; color: var(--accent-soft);
+  }
+  .lead { font-size: 1.05rem; color: var(--text-dim); max-width: 72ch; }
+  .lead + .lead { margin-top: 16px; }
+
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 26px; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 22px; }
+  .stat strong { display: block; font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--accent-soft); line-height: 1.1; }
+  .stat span { font-size: .85rem; color: var(--text-dim); }
+
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 8px; }
+  .feature-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 26px;
+  }
+  .feature-card h3 { font-size: 1rem; margin-bottom: 10px; }
+  .feature-card p { font-size: .88rem; color: var(--text-dim); line-height: 1.6; }
+
+  .pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .pill {
+    font-size: .82rem; padding: 8px 16px; border-radius: 999px; background: var(--bg-alt);
+    border: 1px solid var(--border); color: var(--text-dim);
+  }
+
+  .shot-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px 28px; }
+  .shot-block { max-width: 430px; width: 100%; margin: 0 auto; }
+  .shot-caption { font-size: .85rem; color: var(--text-faint); margin-top: 12px; }
+  .shot-caption strong { color: var(--text-dim); }
+  figure { margin: 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: var(--surface); }
+
+  .note-callout {
+    background: linear-gradient(135deg, var(--surface), var(--bg-alt));
+    border: 1px solid var(--border-strong); border-radius: 18px; padding: 32px 34px;
+  }
+  .note-callout h3 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 1.3rem; margin-bottom: 12px; color: var(--accent-soft); }
+  .note-callout p { color: var(--text-dim); font-size: .96rem; max-width: 68ch; }
+
+  footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; color: var(--text-faint); font-size: .85rem; }
+
+  @media (max-width: 860px) { .feature-grid { grid-template-columns: 1fr 1fr; } .stat-row { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .shot-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 560px) { .feature-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="../index.html#projects">&larr; Back to Rewan Elsherbiny's portfolio</a>
+</div>
+
+<header class="hero">
+  <div class="container">
+    <p class="kicker">Internal Tool &middot; Progress Tracking</p>
+    <h1>First Avenue Compound — Finishing Tracker</h1>
+    <p class="subtitle">A web app that gives a real estate development team one place to follow construction and finishing progress across an entire compound — from buildings and floors down to individual apartments and finishing items. Built by Rewan Elsherbiny, with an Arabic, right-to-left interface for the project team.</p>
+    <p class="credit">Created and built by <strong>Rewan Elsherbiny</strong></p>
+
+    <div class="hero-shot">
+      <img src="../images/project-first-avenue-compound.jpg" alt="Three screens of the First Avenue Compound finishing tracker: the project dashboard, a building overview, and an apartment finishing checklist" loading="lazy">
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section>
+    <h2 class="section-title">The Problem</h2>
+    <p class="lead">A compound with hundreds of apartments means thousands of finishing steps — plastering, plumbing and electrical first-fix, carpentry, painting, and more — each at a different stage and handled by different engineers. Tracking that in spreadsheets and chat threads makes it hard to know what is actually done, what is stuck, and what is due soon.</p>
+    <p class="lead">This tracker puts the whole compound in one system. Every building, floor, apartment, and finishing item has a status, so progress rolls up automatically into completion percentages that the team can read at a glance.</p>
+
+    <div class="stat-row">
+      <div class="stat"><strong>9</strong><span>Buildings tracked</span></div>
+      <div class="stat"><strong>609</strong><span>Apartments in the system</span></div>
+      <div class="stat"><strong>30</strong><span>Finishing items in a full-finish apartment</span></div>
+      <div class="stat"><strong>16</strong><span>Floors in a single building</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Core Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Project Dashboard</h3>
+        <p>A project-wide overview with overall completion, plus task counts by status — completed, in progress, not started, has a problem, overdue, and due soon — and progress for each building.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Buildings, Floors &amp; Apartments</h3>
+        <p>Drill down from a building to its floors to each apartment. Every level shows its own completion bar, so a delay is easy to trace to its source.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Finishing Checklist</h3>
+        <p>Each apartment carries a finishing-item checklist — plaster, plumbing, electrical and drainage first-fix, painting, carpentry, and more — with done / not done status, start and end dates, and duration.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Apartment Records</h3>
+        <p>Apartment type, responsible engineer, ownership, sale status, and unit specifications live next to the work, with tabs for overview, rooms, finishing items, tasks, and notes.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Facilities &amp; Garage</h3>
+        <p>Shared compound areas are tracked too — landscaping, children's play area, lagoon, internal streets, mosque, and more — with a Garage section alongside them.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Team &amp; Accountability</h3>
+        <p>Personal task lists, notifications, global search across buildings, apartments, clients, engineers, tasks, and notes, user management, and an activity log of who changed what.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Compound Coverage</h2>
+    <p class="lead">The dashboard colour-codes every unit by finishing type and ownership, across nine buildings:</p>
+    <div class="pills">
+      <span class="pill">A1</span><span class="pill">A2</span><span class="pill">A3</span><span class="pill">A4</span><span class="pill">A5</span>
+      <span class="pill">B1</span><span class="pill">B2</span><span class="pill">C1</span><span class="pill">C2</span>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Walkthrough</h2>
+
+    <div class="shot-grid">
+      <div class="shot-block">
+        <figure>
+          <img src="../images/first-avenue-compound/dashboard.jpg" alt="Project dashboard with building selector and colour legend for finishing types" loading="lazy">
+        </figure>
+        <p class="shot-caption"><strong>Dashboard</strong> — a project-wide overview with a building selector and a colour legend for finishing types.</p>
+      </div>
+
+      <div class="shot-block">
+        <figure>
+          <img src="../images/first-avenue-compound/navigation.jpg" alt="Navigation menu with dashboard, buildings, my tasks, facilities, garage, users, and activity log" loading="lazy">
+        </figure>
+        <p class="shot-caption"><strong>Navigation</strong> — dashboard, buildings, personal tasks, facilities, and garage, plus admin tools for users and the activity log.</p>
+      </div>
+
+      <div class="shot-block">
+        <figure>
+          <img src="../images/first-avenue-compound/buildings.jpg" alt="Buildings list showing completion progress, floors, apartments, and tasks for each building" loading="lazy">
+        </figure>
+        <p class="shot-caption"><strong>Buildings</strong> — every building with its completion bar, floor count, apartment count, and task count.</p>
+      </div>
+
+      <div class="shot-block">
+        <figure>
+          <img src="../images/first-avenue-compound/building-detail.jpg" alt="Building A1 overview with completion, floors, apartments, tasks, overdue tasks, and items with problems" loading="lazy">
+        </figure>
+        <p class="shot-caption"><strong>Building overview</strong> — floors, apartments, tasks, overdue work, and items flagged with a problem.</p>
+      </div>
+
+      <div class="shot-block">
+        <figure>
+          <img src="../images/first-avenue-compound/floor.jpg" alt="Ground floor of building A1 listing each apartment with status, finishing type, and progress" loading="lazy">
+        </figure>
+        <p class="shot-caption"><strong>Floor view</strong> — each apartment on the floor with its status, finishing type, and progress.</p>
+      </div>
+
+      <div class="shot-block">
+        <figure>
+          <img src="../images/first-avenue-compound/apartment.jpg" alt="Apartment record with type, responsible engineer, estimated progress, ownership, and sale status" loading="lazy">
+        </figure>
+        <p class="shot-caption"><strong>Apartment record</strong> — type, responsible engineer, estimated progress, ownership, and sale status in one place.</p>
+      </div>
+
+      <div class="shot-block">
+        <figure>
+          <img src="../images/first-avenue-compound/finishing-checklist.jpg" alt="Finishing checklist with done and not-done toggles, start and end dates, and duration for each item" loading="lazy">
+        </figure>
+        <p class="shot-caption"><strong>Finishing checklist</strong> — per-item status with start and end dates, rolling up into the apartment's completion.</p>
+      </div>
+
+      <div class="shot-block">
+        <figure>
+          <img src="../images/first-avenue-compound/facilities.jpg" alt="Facilities list including landscaping, children's play area, lagoon, internal streets, and mosque" loading="lazy">
+        </figure>
+        <p class="shot-caption"><strong>Facilities</strong> — shared compound areas tracked alongside the apartments.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="note-callout">
+      <h3>Private by Design</h3>
+      <p>This is an internal tool for the project team, so it sits behind a login and there is no public demo. The screens above are from the live app.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Project by Rewan Elsherbiny.
+</footer>
+</body>
+</html>
