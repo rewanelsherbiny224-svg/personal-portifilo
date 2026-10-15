@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hana Elsherbiny Portfolio — Project by Rawan Elsherbiny</title>
+<meta name="description" content="Portfolio design case study: a food and baking portfolio for home cook Hana Elsherbiny, designed by Rawan Elsherbiny.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Big+Shoulders+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #3E2723; --bg-alt: #2F1C19; --surface: #4D3330;
+    --border: rgba(255,249,247,0.09); --border-strong: rgba(255,249,247,0.16);
+    --text: #FFF9F7; --text-dim: #E9D3D6; --text-faint: #BFA09F;
+    --accent: #D9A7B0; --accent-soft: #F6E6E8;
+    --font-display: "Big Shoulders Display", sans-serif;
+    --font-body: "Plus Jakarta Sans", sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+  a { color: inherit; }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 8px; padding: 20px 0;
+    color: var(--text-dim); text-decoration: none; font-size: .9rem; font-weight: 600;
+  }
+  .back-link:hover { color: var(--accent-soft); }
+  header.hero { padding: 40px 0 60px; border-bottom: 1px solid var(--border); }
+  .kicker { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 14px; }
+  h1 {
+    font-family: var(--font-display); font-weight: 800; text-transform: uppercase;
+    font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.02; margin-bottom: 18px;
+  }
+  .subtitle { color: var(--text-dim); font-size: 1.1rem; max-width: 60ch; }
+  .credit { margin-top: 24px; font-size: .85rem; color: var(--text-faint); }
+  .credit strong { color: var(--accent-soft); }
+  main { padding: 60px 0 80px; }
+  section { margin-bottom: 64px; }
+  .section-title {
+    font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+    font-size: 1.6rem; margin-bottom: 24px; color: var(--accent-soft);
+  }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  figure {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    overflow: hidden; margin: 0;
+  }
+  figure img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+  figcaption { padding: 16px 18px; }
+  figcaption .piece-title { font-weight: 700; font-size: .98rem; margin-bottom: 4px; }
+  figcaption .piece-medium { font-size: .82rem; color: var(--text-faint); }
+  footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; color: var(--text-faint); font-size: .85rem; }
+  @media (max-width: 860px) { .gallery { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .gallery { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="../index.html#projects">&larr; Back to Rawan Elsherbiny's portfolio</a>
+</div>
+
+<header class="hero">
+  <div class="container">
+    <p class="kicker">Portfolio Design Project</p>
+    <h1>Food &amp; Baking Portfolio<br>Hana Elsherbiny</h1>
+    <p class="subtitle">A portfolio for self-taught home cook Hana Elsherbiny, organizing her sweet bakes and savory dishes into a warm, easy-to-browse showcase of recipes she writes and tests herself.</p>
+    <p class="credit">Portfolio designed by <strong>Rawan Elsherbiny</strong></p>
+  </div>
+</header>
+
+<main class="container">
+  <section>
+    <h2 class="section-title">Sweet &amp; Baked</h2>
+    <div class="gallery">
+      <figure>
+        <img src="hana-gallery/cinnamon-rolls.jpg" alt="Glazed cinnamon rolls" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Classic Cinnamon Rolls</div>
+          <div class="piece-medium">Rolled thick with a cinnamon-brown sugar swirl and a vanilla glaze.</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="hana-gallery/rolls-fresh-from-oven.jpg" alt="Cinnamon rolls fresh from the oven" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Fresh From the Oven</div>
+          <div class="piece-medium">Straight out of the oven, still warm, before the second glaze goes on.</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="hana-gallery/caramel-walnut-rolls.jpg" alt="Caramel walnut cinnamon rolls" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Caramel Walnut Rolls</div>
+          <div class="piece-medium">The same dough pushed further, with caramel drizzle and toasted walnuts.</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="hana-gallery/caramel-rolls-close-up.jpg" alt="Caramel walnut rolls close up" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Caramel Rolls, Close Up</div>
+          <div class="piece-medium">Cream cheese icing and caramel, still warm in the pan.</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="hana-gallery/caramel-roll-plated.jpg" alt="Caramel walnut roll plated" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Caramel Roll, Plated</div>
+          <div class="piece-medium">One roll, plated and glazed. The swirl holds all the way through.</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="hana-gallery/chocolate-drip-cake.jpg" alt="Chocolate drip cake" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Chocolate Drip Cake</div>
+          <div class="piece-medium">Layered, stacked, and finished with a dark chocolate drip.</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="hana-gallery/orange-bundt.jpg" alt="Orange glazed bundt cake" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Orange Glazed Bundt</div>
+          <div class="piece-medium">Dense and syrup-soaked, with a citrus glaze baked into the crust.</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="hana-gallery/orange-cake.jpg" alt="Golden orange sponge cake" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Simple Orange Cake</div>
+          <div class="piece-medium">An orange sponge with a deep golden top and a sturdy crumb.</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="hana-gallery/soaked-sugar-buns.jpg" alt="Soaked sugar buns" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Soaked Sugar Buns</div>
+          <div class="piece-medium">Small buns finished in a warm milk soak.</div>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Savory Kitchen</h2>
+    <div class="gallery">
+      <figure>
+        <img src="hana-gallery/shrimp-pasta.jpg" alt="Creamy shrimp pasta" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Creamy Shrimp Pasta</div>
+          <div class="piece-medium">Penne and pappardelle in one pan, with shrimp folded through a from-scratch sauce.</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="hana-gallery/garlic-herb-crabs.jpg" alt="Garlic herb crabs" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Garlic Herb Crabs</div>
+          <div class="piece-medium">Whole crabs finished in garlic, herbs, and a hot pan.</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="hana-gallery/stuffed-grape-leaves.jpg" alt="Stuffed grape leaves platter" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Stuffed Grape Leaves</div>
+          <div class="piece-medium">Rolled by hand, one by one.</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="hana-gallery/chicken-caesar-salad.jpg" alt="Chicken caesar salad" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Chicken Caesar Salad</div>
+          <div class="piece-medium">Grilled chicken, torn croutons, and a dressing built to hold its own.</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="hana-gallery/herbed-croissants.jpg" alt="Herbed savory croissants plated" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Herbed Croissants</div>
+          <div class="piece-medium">Butter-brushed and finished with herbs and sesame.</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="hana-gallery/croissants-fresh.jpg" alt="Herbed croissants fresh off the sheet" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Croissants, Fresh Off the Sheet</div>
+          <div class="piece-medium">Straight from the oven, before they hit the table.</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="hana-gallery/bechamel-pasta.jpg" alt="Baked bechamel pasta" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Bechamel Pasta</div>
+          <div class="piece-medium">Pasta under a creamy bechamel top, baked until deep gold.</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="hana-gallery/sheet-pan-pizza.jpg" alt="Sheet pan pizza with cheese and olives" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Sheet Pan Pizza</div>
+          <div class="piece-medium">A thick, cheesy crust loaded with olives.</div>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="hana-gallery/glazed-stuffed-buns.jpg" alt="Glazed stuffed buns on a tray" loading="lazy">
+        <figcaption>
+          <div class="piece-title">Glazed Stuffed Buns</div>
+          <div class="piece-medium">Soft filled buns, glazed and ready to go out.</div>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Portfolio design case study by Rawan Elsherbiny. Food photography &copy; Hana Elsherbiny.
+</footer>
+</body>
+</html>
