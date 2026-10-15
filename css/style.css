@@ -378,33 +378,36 @@ input { font: inherit; }
 
 
 /* ============ Stacked sections: plum + warm white ============ */
-.section { background: var(--bg); border-radius: 44px 44px 0 0; margin-top: -44px; }
+.section { background: var(--bg); border-radius: 44px 44px 0 0; margin-top: -44px; box-shadow: 0 -16px 36px -22px rgba(53,33,63,.35); }
 .footer { background: var(--bg); border-radius: 44px 44px 0 0; margin-top: -44px; position: relative; padding-top: 80px; }
 
 .section-light {
-  --bg: #FAF7F8;            /* warm white — readable content sections */
-  --bg-alt: #F3EBEE;
-  --surface: #FFFFFF;
-  --surface-hover: #FFFFFF;
-  --border: rgba(53, 33, 63, 0.10);
-  --border-strong: rgba(53, 33, 63, 0.22);
+  --bg: #E8BFC8;            /* soft pink — content sections */
+  --bg-alt: #DDAEBA;
+  --surface: #F2D5DB;
+  --surface-hover: #F6DEE3;
+  --border: rgba(53, 33, 63, 0.14);
+  --border-strong: rgba(53, 33, 63, 0.28);
   --text: #35213F;
-  --text-dim: #5C4868;
-  --text-faint: #86728F;
+  --text-dim: #54405F;
+  --text-faint: #644F70;
+  --accent: #35213F;
   --accent-soft: #35213F;
+  --accent-dim: rgba(53, 33, 63, 0.12);
   color: var(--text);
 }
 .section-light .section-kicker,
 .section-light .project-tag,
 .section-light .edu-tag {
-  background: var(--accent); color: #35213F; padding: 6px 14px; border-radius: 999px;
+  background: #35213F; color: #F2D5DB; padding: 6px 14px; border-radius: 999px;
 }
 .section-light .section-kicker { display: inline-block; }
 .section-light .skills-card h3 { color: var(--text); }
-.section-light .chip:hover { background: var(--accent); border-color: var(--accent); color: #35213F; }
-.section-light .project-link { color: var(--text); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 3px; text-underline-offset: 4px; }
+.section-light .chip:hover { background: #35213F; border-color: #35213F; color: #F2D5DB; }
+.section-light .project-link { color: var(--text); text-decoration: underline; text-decoration-color: #35213F; text-decoration-thickness: 2px; text-underline-offset: 4px; }
 .section-light .project-card:hover, .section-light .project-card:focus-visible { box-shadow: 0 24px 50px -22px rgba(53, 33, 63, .45); }
 .section-light .timeline-dot { box-shadow: 0 0 0 4px var(--accent-dim); }
+.section-light .about-facts, .section-light .skills-card, .section-light .project-card, .section-light .edu-card { box-shadow: 0 14px 34px -22px rgba(53,33,63,.35); }
 
 /* plum form card sitting on a warm-white section */
 .booking-form {
@@ -416,7 +419,7 @@ input { font: inherit; }
 
 /* pink accent bar under every section title */
 .section-title::after { content: ""; display: block; width: 64px; height: 5px; border-radius: 5px; background: var(--accent); margin-top: 20px; }
-.section-light .section-title::after { background: var(--accent); box-shadow: 0 0 0 1px rgba(53,33,63,.06); }
+.section-light .section-title::after { background: #35213F; }
 
 /* pink offset shape behind the hero portrait */
 .hero-photo-wrap::before {
@@ -432,7 +435,7 @@ input { font: inherit; }
 
 /* ============ Light hero: soft pink, plum headings & buttons ============ */
 .hero {
-  --surface: #FAF7F8;
+  --surface: #F2D5DB;
   --border: rgba(53, 33, 63, 0.14);
   --border-strong: rgba(53, 33, 63, 0.28);
   --text: #35213F;
@@ -442,7 +445,7 @@ input { font: inherit; }
   --accent-soft: #35213F;
   --accent-dim: rgba(53, 33, 63, 0.10);
   --accent-glow: rgba(53, 33, 63, 0.28);
-  background: linear-gradient(165deg, #F4DDE3 0%, #E8BFC8 100%);
+  background: #E8BFC8;
   color: var(--text);
 }
 .hero .grid-lines {
@@ -450,16 +453,16 @@ input { font: inherit; }
     linear-gradient(to right, rgba(53,33,63,0.06) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(53,33,63,0.06) 1px, transparent 1px);
 }
-.hero .blob-a { background: radial-gradient(circle, rgba(250,247,248,.95) 0%, transparent 70%); opacity: .8; }
+.hero .blob-a { background: radial-gradient(circle, rgba(244,221,227,.95) 0%, transparent 70%); opacity: .7; }
 .hero .blob-b { background: radial-gradient(circle, rgba(90,58,110,.55) 0%, transparent 70%); opacity: .25; }
-.hero .blob-c { background: radial-gradient(circle, rgba(250,247,248,.9) 0%, transparent 70%); opacity: .5; }
-.hero .photo-glow { background: radial-gradient(circle, rgba(250,247,248,.75) 0%, transparent 65%); }
-.hero .btn-primary { background: #35213F; color: #FAF7F8; box-shadow: 0 10px 30px -10px rgba(53,33,63,.55); }
+.hero .blob-c { background: radial-gradient(circle, rgba(244,221,227,.9) 0%, transparent 70%); opacity: .45; }
+.hero .photo-glow { background: radial-gradient(circle, rgba(244,221,227,.8) 0%, transparent 65%); }
+.hero .btn-primary { background: #35213F; color: #F2D5DB; box-shadow: 0 10px 30px -10px rgba(53,33,63,.55); }
 .hero .btn-primary:hover { box-shadow: 0 16px 36px -12px rgba(53,33,63,.6); }
 .hero .btn-ghost { border-color: #35213F; color: #35213F; }
-.hero .btn-ghost:hover { background: #35213F; border-color: #35213F; color: #FAF7F8; }
+.hero .btn-ghost:hover { background: #35213F; border-color: #35213F; color: #F2D5DB; }
 .hero-photo-wrap::before { background: #35213F; transform: translate(16px, 16px) rotate(3deg); }
-.hero .photo-frame { border: 3px solid #FAF7F8; box-shadow: 0 30px 70px -25px rgba(53,33,63,.55); }
+.hero .photo-frame { border: 3px solid #F2D5DB; box-shadow: 0 30px 70px -25px rgba(53,33,63,.55); }
 .hero .badge-float { color: #35213F; box-shadow: 0 14px 30px -12px rgba(53,33,63,.4); }
 .hero .badge-float span { color: #5A3A6E; }
 
