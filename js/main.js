@@ -58,7 +58,23 @@
   var form = document.getElementById("contactForm");
   var note = document.getElementById("formNote");
   var TO = "Rewanelsherbiny224@gmail.com";
+  var LABELS = { freelance: "Freelance enquiry", employment: "Job opportunity", other: "Message" };
+  var PROMPTS = { freelance: "Project details", employment: "Role & team details", other: "Message" };
   if (form) {
+    var typeEl = form.elements.type;
+    var msgLabel = document.getElementById("cMsgLabel");
+    var setType = function (t) {
+      if (!LABELS[t]) t = "other";
+      typeEl.value = t;
+      if (msgLabel) msgLabel.textContent = PROMPTS[t];
+    };
+    typeEl.addEventListener("change", function () { setType(typeEl.value); });
+    setType(typeEl.value);
+    // Enquiry buttons across the page preselect the matching enquiry type
+    [].slice.call(document.querySelectorAll("[data-inquiry]")).forEach(function (el) {
+      el.addEventListener("click", function () { setType(el.getAttribute("data-inquiry")); });
+    });
+
     var fields = [].slice.call(form.querySelectorAll("input, textarea"));
     var msgFor = function (el) {
       if (el.validity.valueMissing) return "Please fill this in.";
@@ -86,7 +102,7 @@
       var email = form.elements.email.value.trim();
       var body = form.elements.message.value.trim() + "\n\n— " + name + " (" + email + ")";
       note.textContent = "Opening your email app with your message ready to send. If nothing opens, email me directly at " + TO + ".";
-      window.location.href = "mailto:" + TO + "?subject=" + encodeURIComponent("Portfolio message from " + name) + "&body=" + encodeURIComponent(body);
+      window.location.href = "mailto:" + TO + "?subject=" + encodeURIComponent(LABELS[typeEl.value] + " — " + name) + "&body=" + encodeURIComponent(body);
     });
   }
 })();
