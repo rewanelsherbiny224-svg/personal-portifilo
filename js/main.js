@@ -33,8 +33,10 @@
   var anchors = [].slice.call(document.querySelectorAll("[data-nav]"));
   var targets = anchors.map(function (a) { return document.querySelector(a.getAttribute("href")); });
   function spy() {
-    var pos = window.scrollY + 140, current = 0;
-    targets.forEach(function (t, i) { if (t && t.offsetTop <= pos) current = i; });
+    // Nav order differs from page order (Experience sits below Projects), so pick
+    // the section nearest above the viewport, not the last nav item that qualifies.
+    var pos = window.scrollY + 140, current = 0, best = -1;
+    targets.forEach(function (t, i) { if (t && t.offsetTop <= pos && t.offsetTop > best) { best = t.offsetTop; current = i; } });
     anchors.forEach(function (a, i) { a.classList.toggle("active", i === current); });
   }
   window.addEventListener("scroll", spy, { passive: true });
