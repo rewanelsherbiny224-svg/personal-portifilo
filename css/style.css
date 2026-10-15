@@ -198,7 +198,7 @@ input { font: inherit; }
   position: relative; z-index: 1; border-radius: var(--radius-l); overflow: hidden;
   border: 1px solid var(--border-strong);
   box-shadow: 0 30px 80px -20px rgba(20,8,28,.65);
-  aspect-ratio: 962 / 1599;
+  aspect-ratio: 830 / 1256;
 }
 .photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
 
@@ -426,6 +426,58 @@ input { font: inherit; }
 
 @media (max-width: 720px) {
   .section, .footer { border-radius: 28px 28px 0 0; margin-top: -28px; }
+  .hero-photo-wrap::before { transform: translate(10px, 12px) rotate(3deg); }
+}
+
+
+/* ============ Light hero: soft pink, plum headings & buttons ============ */
+.hero {
+  --surface: #FAF7F8;
+  --border: rgba(53, 33, 63, 0.14);
+  --border-strong: rgba(53, 33, 63, 0.28);
+  --text: #35213F;
+  --text-dim: #5A4666;
+  --text-faint: #6F5B7B;
+  --accent: #5A3A6E;
+  --accent-soft: #35213F;
+  --accent-dim: rgba(53, 33, 63, 0.10);
+  --accent-glow: rgba(53, 33, 63, 0.28);
+  background: linear-gradient(165deg, #F4DDE3 0%, #E8BFC8 100%);
+  color: var(--text);
+}
+.hero .grid-lines {
+  background-image:
+    linear-gradient(to right, rgba(53,33,63,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(53,33,63,0.06) 1px, transparent 1px);
+}
+.hero .blob-a { background: radial-gradient(circle, rgba(250,247,248,.95) 0%, transparent 70%); opacity: .8; }
+.hero .blob-b { background: radial-gradient(circle, rgba(90,58,110,.55) 0%, transparent 70%); opacity: .25; }
+.hero .blob-c { background: radial-gradient(circle, rgba(250,247,248,.9) 0%, transparent 70%); opacity: .5; }
+.hero .photo-glow { background: radial-gradient(circle, rgba(250,247,248,.75) 0%, transparent 65%); }
+.hero .btn-primary { background: #35213F; color: #FAF7F8; box-shadow: 0 10px 30px -10px rgba(53,33,63,.55); }
+.hero .btn-primary:hover { box-shadow: 0 16px 36px -12px rgba(53,33,63,.6); }
+.hero .btn-ghost { border-color: #35213F; color: #35213F; }
+.hero .btn-ghost:hover { background: #35213F; border-color: #35213F; color: #FAF7F8; }
+.hero-photo-wrap::before { background: #35213F; transform: translate(16px, 16px) rotate(3deg); }
+.hero .photo-frame { border: 3px solid #FAF7F8; box-shadow: 0 30px 70px -25px rgba(53,33,63,.55); }
+.hero .badge-float { color: #35213F; box-shadow: 0 14px 30px -12px rgba(53,33,63,.4); }
+.hero .badge-float span { color: #5A3A6E; }
+
+/* nav sits on the pink hero until you scroll, then turns plum */
+.nav:not(.scrolled) { color: #35213F; }
+.nav:not(.scrolled) .nav-logo span { color: #5A3A6E; }
+.nav:not(.scrolled) .nav-links a { color: #5A4666; }
+.nav:not(.scrolled) .nav-links a:hover,
+.nav:not(.scrolled) .nav-links a.active { color: #35213F; }
+.nav:not(.scrolled) .nav-links a::after { background: #35213F; }
+.nav:not(.scrolled) .nav-toggle span { background: #35213F; }
+.nav:not(.scrolled) .btn-primary { background: #35213F; color: #FAF7F8; box-shadow: 0 8px 24px -10px rgba(53,33,63,.55); }
+
+@media (max-width: 720px) {
+  .nav:not(.scrolled) .nav-links a { color: #DCCFE0; }
+  .nav:not(.scrolled) .nav-links a:hover,
+  .nav:not(.scrolled) .nav-links a.active { color: #FAF7F8; }
+  .nav:not(.scrolled) .nav-links a::after { background: #E8BFC8; }
   .hero-photo-wrap::before { transform: translate(10px, 12px) rotate(3deg); }
 }
 
