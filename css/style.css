@@ -196,6 +196,10 @@ svg { display: block; }
 .contact-form .btn { justify-self: start; border: 0; }
 .form-note { font-size: .86rem; color: var(--warm); }
 .form-note:empty { display: none; }
+.form-note.success { color: #2E6B45; font-weight: 600; }
+.form-note.error { color: #A8403F; font-weight: 600; }
+.contact-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.contact-form button:disabled { opacity: .7; cursor: wait; }
 
 /* Footer */
 .footer { background: var(--choc-deep); color: var(--blush); padding: 30px 0; }

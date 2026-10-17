@@ -56,7 +56,7 @@
     reveals.forEach(function (el) { el.classList.add("in-view"); });
   }
 
-  // Contact form — validates, then opens the visitor's email app (static site, no server)
+  // Contact form — validates, then POSTs to /api/contact (Vercel function → Resend)
   var form = document.getElementById("contactForm");
   var note = document.getElementById("formNote");
   var TO = "Rewanelsherbiny224@gmail.com";
@@ -83,7 +83,7 @@
       });
     });
 
-    var fields = [].slice.call(form.querySelectorAll("input, textarea"));
+    var fields = [].slice.call(form.querySelectorAll(".field input, .field textarea"));
     var msgFor = function (el) {
       if (el.validity.valueMissing) return "Please fill this in.";
       if (el.validity.typeMismatch) return "Please enter a valid email address.";
@@ -101,16 +101,83 @@
       el.addEventListener("blur", function () { check(el); });
       el.addEventListener("input", function () { if (el.closest(".field").classList.contains("invalid")) check(el); });
     });
+    var btn = form.querySelector('button[type="submit"]');
+    var btnHtml = btn.innerHTML;
+    var setNote = function (text, kind) {
+      note.textContent = text;
+      note.className = "form-note" + (kind ? " " + kind : "");
+    };
+    var busy = false;
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (busy) return;
       var ok = true, first = null;
       fields.forEach(function (el) { if (!check(el)) { ok = false; if (!first) first = el; } });
-      if (!ok) { note.textContent = ""; first.focus(); return; }
-      var name = form.elements.name.value.trim();
-      var email = form.elements.email.value.trim();
-      var body = form.elements.message.value.trim() + "\n\n— " + name + " (" + email + ")";
-      note.textContent = "Opening your email app with your message ready to send. If nothing opens, email me directly at " + TO + ".";
-      window.location.href = "mailto:" + TO + "?subject=" + encodeURIComponent(LABELS[typeEl.value] + (service ? " — " + service : "") + " — " + name) + "&body=" + encodeURIComponent(body);
+      if (!ok) { setNote(""); first.focus(); return; }
+
+      busy = true;
+      btn.disabled = true;
+      btn.textContent = "Sending…";
+      setNote("Sending your message…");
+
+      var fail = function (msg) {
+        setNote(msg || "Something went wrong. Please email me directly at " + TO + ".", "error");
+      };
+      fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: typeEl.value,
+          name: form.elements.name.value.trim(),
+          email: form.elements.email.value.trim(),
+          message: form.elements.message.value.trim(),
+          service: service,
+          website: form.elements.website ? form.elements.website.value : ""
+        })
+      }).then(function (res) {
+        return res.json().catch(function () { return null; }).then(function (data) {
+          if (!data && (res.status === 404 || res.status === 405 || res.status === 501)) {
+            // No server function on this host (e.g. the GitHub Pages copy): use the email app, as before.
+            var subj = LABELS[typeEl.value] + (service ? " — " + service : "") + " — " + form.elements.name.value.trim();
+            var mbody = form.elements.message.value.trim() + "\n\n— " + form.elements.name.value.trim() + " (" + form.elements.email.value.trim() + ")";
+            setNote("Opening your email app with your message ready to send. If nothing opens, email me directly at " + TO + ".");
+            window.location.href = "mailto:" + TO + "?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(mbody);
+            return;
+          }
+          if (res.ok && data && data.ok === true) {
+            // Only reached when the server confirmed Resend accepted the email.
+            form.reset();
+            service = "";
+            setType("freelance");
+            fields.forEach(function (el) {
+              el.closest(".field").classList.remove("invalid");
+              el.setAttribute("aria-invalid", "false");
+            });
+            setNote("Thank you — your message has been sent. I'll get back to you soon.", "success");
+            return;
+          }
+          if (data && data.fields) {
+            var firstBad = null;
+            Object.keys(data.fields).forEach(function (k) {
+              var el = form.elements[k];
+              if (!el || !el.closest) return;
+              var wrap = el.closest(".field");
+              wrap.classList.add("invalid");
+              wrap.querySelector(".err").textContent = data.fields[k];
+              el.setAttribute("aria-invalid", "true");
+              if (!firstBad) firstBad = el;
+            });
+            if (firstBad) firstBad.focus();
+          }
+          fail(data && data.error ? data.error + " You can also email me at " + TO + "." : null);
+        });
+      }).catch(function () {
+        fail("Couldn't reach the server. Check your connection and try again, or email me at " + TO + ".");
+      }).then(function () {
+        busy = false;
+        btn.disabled = false;
+        btn.innerHTML = btnHtml;
+      });
     });
   }
 })();
